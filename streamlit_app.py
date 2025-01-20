@@ -66,6 +66,9 @@ def classify_carb_content(uploaded_file, model):
     ]
     
     prompt = f"""
+    Your task is to analyze the provided images of sports supplements (like bars and gels)
+    and infer their carbohydrate content (e.g., 40g, 20g). Your output should include only
+    the product name and carbs content in grams formatted in text markdown.
     Here are a few examples of sports supplements with their correct carbohydrate content:
     {' '.join(few_shot_examples)}
     
