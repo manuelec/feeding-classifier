@@ -1,0 +1,4 @@
+google-generativeai==<version>
+matplotlib==<version>
+pandas==<version>
+numpy==<version>
