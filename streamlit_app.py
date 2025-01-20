@@ -15,25 +15,19 @@ def configure_api():
 
 # Model setup
 def setup_model():
+    """Sets up the Gemini model with generation configuration."""
     generation_config = {
         "temperature": 0.1,
         "top_p": 0.95,
         "top_k": 40,
         "max_output_tokens": 8192,
     }
-    
-    system_instruction = """
-    Analyze the provided sports supplement image and identify its carbohydrate content.
-    Provide a concise response in this format:
-    Product: [Name]
-    Carbs: [X]g [Exact/Estimated]
-    """
-    
-    return genai.GenerativeModel(
+
+    model = genai.GenerativeModel(
         model_name="gemini-1.5-flash-8b",
         generation_config=generation_config,
-        system_instruction=system_instruction,
     )
+    return model
 
 # Classification function
 def classify_carb_content(uploaded_file, model):
